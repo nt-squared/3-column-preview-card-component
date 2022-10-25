@@ -1,0 +1,131 @@
+:root {
+    --primary-orange-light: hsl(31, 77%, 52%);
+    --primary-cyan-dark: hsl(184, 100%, 22%);
+    --primary-cyan-darker: hsl(179, 100%, 13%);
+
+    --neutral-white-transparent: hsla(0, 0%, 100%, 0.75);
+    --neutral-gray-xlight: hsl(0, 0%, 95%);
+
+    --ff-header: 'Big Shoulders Display', cursive;
+    --ff-body: 'Lexend Deca', sans-serif; 
+    --fs--base: 15px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs--base);
+    min-height: 100vh;
+    
+}
+
+
+// Desktop view
+.wrapper {
+    display: flex;
+    padding: 7em 11em;
+    max-width: 1440px;
+    background-color: var(--neutral-gray-xlight);
+
+    & .card {
+        display: flex;
+        border-radius: 7px;
+        overflow: hidden;
+        max-width: 850px;
+
+        & section {
+            flex: 1;
+            display: grid;
+            grid-template-rows: 1fr auto;
+            padding: 2.5em;
+    
+            & .card-detail {
+                display: flex;
+                flex-direction: column;
+                gap: 1.6em;
+                margin-bottom: 3.6em;
+    
+                & .title {
+                    color: var(--neutral-gray-xlight);
+                    font-size: 2.5em;
+                    font-family: var(--ff-header);
+                    font-weight: 700;
+                    line-height: 1;
+                    letter-spacing: .25px;
+                    text-transform: uppercase;
+                }
+    
+                & .desc {
+                    color: var(--neutral-white-transparent);
+                    font-family: var(--ff-body);
+                    line-height: 1.5;
+                }
+                
+            }
+    
+            &.sedan {
+                background-color: var(--primary-orange-light);
+
+                & button {
+                    color: var(--primary-orange-light);
+                }
+            }
+    
+            &.suv {
+                background-color: var(--primary-cyan-dark);
+
+                & button {
+                    color: var(--primary-cyan-dark);
+                }
+            }
+    
+            &.luxury {
+                background-color: var(--primary-cyan-darker);
+
+                & button {
+                    color: var(--primary-cyan-darker);
+                }
+            }
+    
+            & button {
+                width: max-content;
+                background-color: var(--neutral-gray-xlight);
+                border-radius: 100px;
+                padding: 1em 2em;
+                font-size: inherit;
+                font-family: var(--ff-body);
+                border: none;
+                outline: none;
+                cursor: pointer;
+                border: 2px solid var(--neutral-gray-xlight);
+
+                &:hover {
+                    background-color: transparent;
+                    color: var(--neutral-gray-xlight);
+                }
+            }
+        }
+    }
+    
+}   
+
+
+// Mobile view
+@media screen and (max-width: 375px) {
+    .wrapper {
+        padding: 4em 1.2em;
+
+        & .card {
+            flex-direction: column;
+        }
+    }
+    
+}
